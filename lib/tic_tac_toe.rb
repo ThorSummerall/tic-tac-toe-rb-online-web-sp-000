@@ -34,11 +34,17 @@ def turn(board)
   end
 end
 
-def play(board)
-  until over? == true
-    turn(board)
-  end
-end
+ def play(board)
+    until over?(board) == true 
+      turn(board)
+    end
+
+    if won?(board)
+      puts "Congratulations #{winner(board)}!"
+    elsif draw?(board)
+      puts "Cat's Game!"
+    end 
+  end 
 
 def turn_count(board)
   counter = 0
